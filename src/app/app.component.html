@@ -1,7 +1,7 @@
 <div class="flex font-kufi">
   <aside
-    class="bg-gradient-to-bl from-dark-purple to-blue-500 fixed pt-8 right-0 top-0 h-screen p-4 duration-500 items-center"
-    [ngClass]="open ? 'w-72 ' : 'w-20'"
+    class="bg-gradient-to-bl from-dark-purple to-blue-500 fixed pt-8 right-0 top-0 h-screen p-4 duration-500 items-center hidden sm:block"
+    [ngClass]="open ? 'w-60 ' : 'w-20'"
   >
     <mat-icon
       class="bg-white text-dark-purple rounded-full absolute -left-3 top-9 border border-dark-purple cursor-pointer"
@@ -36,10 +36,13 @@
       />
     </div>
   </aside>
-  <main class="flex-1" [ngClass]="open ? 'mr-72 ' : 'mr-20'">
+  <main
+    class="flex-1 sm:mr-60 transition duration-500"
+    [ngClass]="open ? 'lg:mr-60 ' : 'lg:mr-20'"
+  >
     <div class="bg-light-white">
       <nav>
-        <div class="m-8 grid grid-rows-2 grid-flow-col items-center gap-4">
+        <div class="m-8 py-4 grid grid-rows-2 grid-flow-col items-center gap-4">
           <div class="col-span-6 row-span-1 text-right text-dark-purple">
             {{ authedUser }}
           </div>
@@ -56,7 +59,9 @@
             <mat-icon class="nav-icon"> message</mat-icon>
           </div>
           <div class="col-span-8 row-span-2">
-            <div class="flex items-center rounded-md bg-light-white">
+            <div
+              class="flex items-center rounded-md bg-light-white focus-within:ring focus-within:ring-offset-2"
+            >
               <mat-icon class="nav-icon text-2xl block mr-2">search</mat-icon>
               <input
                 type="search"
@@ -69,19 +74,13 @@
       </nav>
     </div>
     <div
-      class="grid grid-cols-2 gap-2 py-4 px-4 justify-items-stretch float-right w-full"
+      class="grid py-4 px-4 justify-center w-full lg:grid-cols-2 sm:grid-cols-1"
     >
-      <div class="h-full shadow-lg bg-light-white">
-        <app-chart [chartOptions]="chartOptions[0]"></app-chart>
-      </div>
-      <div class="h-full shadow-lg bg-light-white">
-        <app-chart [chartOptions]="chartOptions[1]"></app-chart>
-      </div>
-      <div class="h-full shadow-lg bg-light-white">
-        <app-chart [chartOptions]="chartOptions[2]"></app-chart>
-      </div>
-      <div class="h-full shadow-lg bg-light-white">
-        <app-chart [chartOptions]="chartOptions[3]"></app-chart>
+      <div
+        *ngFor="let chartOptions of chartsOptions"
+        class="h-full shadow-lg bg-light-white m-8 p-8 lg:px-12 xl:px-16 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:ring hover:ring-offset-2 duration-300"
+      >
+        <app-chart [chartOptions]="chartOptions"></app-chart>
       </div>
     </div>
   </main>

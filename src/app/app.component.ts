@@ -13,7 +13,7 @@ export class AppComponent {
   authedUser = 'مضر اسكندر';
   jobTitle = 'موظف الهيئة العامة للجمارك';
   isAuthenticated = true;
-  chartOptions: Partial<ChartOptions>[] = [
+  chartsOptions: Partial<ChartOptions>[] = [
     {
       title: {
         text: 'Product Trends by Month',
