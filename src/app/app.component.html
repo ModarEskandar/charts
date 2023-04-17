@@ -4,10 +4,10 @@
     [ngClass]="open ? 'w-60 ' : 'w-20'"
   >
     <mat-icon
-      class="bg-white text-dark-purple rounded-full absolute -left-3 top-9 border border-dark-purple cursor-pointer"
+      class="bg-white text-dark-purple rounded-md hover:-translate-y-0.5 transform transition focus:ring focus:ring-offset-2 absolute -left-3 top-9 border border-dark-purple cursor-pointer"
       (click)="open = !open"
       [ngClass]="{ 'rotate-180': open }"
-      >arrow_left</mat-icon
+      >keyboard_arrow_left</mat-icon
     >
     <div class="flex justify-center my-2">
       <img src="../assets/photos/Group 2723@3x.png" width="150" class="" />
@@ -74,11 +74,11 @@
       </nav>
     </div>
     <div
-      class="grid py-4 px-4 justify-center w-full lg:grid-cols-2 sm:grid-cols-1"
+      class="grid py-4 px-4 justify-center w-full lg:grid-cols-2 sm:grid-cols-1 sm:gap-10"
     >
       <div
         *ngFor="let chartOptions of chartsOptions"
-        class="h-full shadow-lg bg-light-white m-8 p-8 lg:px-12 xl:px-16 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:ring hover:ring-offset-2 duration-300"
+        class="h-full shadow-lg bg-light-white lg:px-12 xl:px-16 transition ease-in-out delay-150 hover:-translate-y-0.5 hover:scale-105 hover:ring hover:ring-offset-2 duration-300"
       >
         <app-chart [chartOptions]="chartOptions"></app-chart>
       </div>
