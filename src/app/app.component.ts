@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ChartOptions } from './charts/charts.component';
+import { ChartsNames } from './constatnts/charts.names';
 
 @Component({
   selector: 'app-root',
@@ -31,6 +32,38 @@ export class AppComponent {
           click: function (chart, w, e) {
             // console.log(chart, w, e)
           },
+        },
+        toolbar: {
+          show: true,
+          offsetX: 0,
+          offsetY: 0,
+          tools: {
+            download: true,
+            selection: true,
+            zoom: true,
+            zoomin: true,
+            zoomout: true,
+            pan: true,
+            customIcons: [],
+          },
+          export: {
+            csv: {
+              filename: undefined,
+              columnDelimiter: ',',
+              headerCategory: 'category',
+              headerValue: 'value',
+              dateFormatter(timestamp) {
+                return new Date(timestamp!).toDateString();
+              },
+            },
+            svg: {
+              filename: undefined,
+            },
+            png: {
+              filename: undefined,
+            },
+          },
+          autoSelected: 'zoom',
         },
       },
       colors: [
@@ -89,7 +122,7 @@ export class AppComponent {
     {
       series: [
         {
-          name: 'Desktops',
+          name: ChartsNames.INV_ISU,
           data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
         },
       ],
@@ -97,18 +130,21 @@ export class AppComponent {
         height: 350,
         type: 'line',
         zoom: {
-          enabled: false,
+          enabled: true,
+        },
+        toolbar: {
+          show: false,
         },
       },
       dataLabels: {
-        enabled: false,
+        enabled: true,
       },
       stroke: {
         curve: 'straight',
       },
       title: {
-        text: 'Product Trends by Month',
-        align: 'left',
+        text: ChartsNames.ADM_INV_CURRENT,
+        align: 'right',
       },
       grid: {
         row: {
@@ -132,7 +168,8 @@ export class AppComponent {
     },
     {
       title: {
-        text: 'Social Media Apps Usage',
+        text: ChartsNames.SOC_MEDIA_USAGE,
+        align: 'center',
       },
       seriesNa: [76, 67, 61, 90],
       chart: {
@@ -152,10 +189,10 @@ export class AppComponent {
           },
           dataLabels: {
             name: {
-              show: false,
+              show: true,
             },
             value: {
-              show: false,
+              show: true,
             },
           },
         },
@@ -202,7 +239,7 @@ export class AppComponent {
         type: 'radar',
       },
       title: {
-        text: 'CR7 Fifa Rate Chart',
+        text: ChartsNames.FIFA_RATE,
       },
       xaxis: {
         categories: [

@@ -12,6 +12,7 @@ import {
   ApexTitleSubtitle,
   ApexNonAxisChartSeries,
   ApexResponsive,
+  ApexTooltip,
 } from 'ng-apexcharts';
 
 type ApexXAxis = {

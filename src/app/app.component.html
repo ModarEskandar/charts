@@ -1,6 +1,6 @@
-<div class="flex">
+<div class="flex font-kufi">
   <aside
-    class="bg-gradient-to-bl from-dark-purple to-blue-500 fixed pt-8 right-0 top-0 h-screen p-10"
+    class="bg-gradient-to-bl from-dark-purple to-blue-500 fixed pt-8 right-0 top-0 h-screen p-4 duration-500 items-center"
     [ngClass]="open ? 'w-72 ' : 'w-20'"
   >
     <mat-icon
@@ -9,14 +9,19 @@
       [ngClass]="{ 'rotate-180': open }"
       >arrow_left</mat-icon
     >
-    <div class="inline-flex">
+    <div class="flex justify-center my-2">
+      <img src="../assets/photos/Group 2723@3x.png" width="150" class="" />
+    </div>
+    <hr />
+
+    <!-- <div class="inline-flex py-8">
       <h1
         class="text-white absolute right-0 text-2xl font-semibold"
         [ngClass]="{ hidden: !open }"
       >
         {{ title }}
       </h1>
-    </div>
+    </div> -->
     <div
       class="flex items-center rounded-md bg-light-white mt-6 px-4 py-2"
       [ngClass]="{ hidden: !open }"
@@ -35,50 +40,47 @@
     <div class="bg-light-white">
       <nav>
         <div class="m-8 grid grid-rows-2 grid-flow-col items-center gap-4">
-          <div class="col-span-6 row-span-1 text-right">
+          <div class="col-span-6 row-span-1 text-right text-dark-purple">
             {{ authedUser }}
           </div>
-          <div class="col-span-6 row-span-1 text-right">{{ jobTitle }}</div>
-          <div class="col-span-2 row-span-2">
-            <mat-icon class="text-dark-purple">image</mat-icon>
+          <div class="col-span-6 row-span-1 text-right text-dark-purple">
+            {{ jobTitle }}
           </div>
           <div class="col-span-2 row-span-2">
-            <mat-icon class="text-dark-purple cursor-pointer"
-              >notifications</mat-icon
-            >
+            <mat-icon class="nav-icon">image</mat-icon>
           </div>
           <div class="col-span-2 row-span-2">
-            <mat-icon class="text-dark-purple cursor-pointer">
-              message</mat-icon
-            >
+            <mat-icon class="nav-icon">notifications</mat-icon>
+          </div>
+          <div class="col-span-2 row-span-2">
+            <mat-icon class="nav-icon"> message</mat-icon>
           </div>
           <div class="col-span-8 row-span-2">
             <div class="flex items-center rounded-md bg-light-white">
-              <mat-icon
-                class="text-dark-purple text-lg block cursor-pointer mr-2"
-                >search</mat-icon
-              >
+              <mat-icon class="nav-icon text-2xl block mr-2">search</mat-icon>
               <input
                 type="search"
                 placeholder="...بحث"
-                class="text-base bg-transparent w-full text-dark-purple focus:outline-none text-right"
+                class="text-lg bg-transparent w-full text-dark-purple focus:outline-none text-right"
               />
             </div>
           </div>
         </div>
       </nav>
     </div>
-    <div class="grid grid-cols-2 gap-4 h-screen py-1 px-4">
-      <div class="w-full h-full shadow-lg bg-light-white">
+    <div
+      class="grid grid-cols-2 gap-2 py-4 px-4 justify-items-stretch float-right w-full"
+    >
+      <div class="h-full shadow-lg bg-light-white">
         <app-chart [chartOptions]="chartOptions[0]"></app-chart>
       </div>
-      <div class="w-full h-full shadow-lg bg-light-white">
+      <div class="h-full shadow-lg bg-light-white">
         <app-chart [chartOptions]="chartOptions[1]"></app-chart>
       </div>
-      <div class="w-full h-full shadow-lg bg-light-white">
+      <div class="h-full shadow-lg bg-light-white">
         <app-chart [chartOptions]="chartOptions[2]"></app-chart>
       </div>
-      <div class="w-full h-full shadow-lg bg-light-white">
+      <div class="h-full shadow-lg bg-light-white">
         <app-chart [chartOptions]="chartOptions[3]"></app-chart>
       </div>
     </div>
