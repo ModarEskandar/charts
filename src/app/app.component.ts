@@ -13,7 +13,8 @@ export class AppComponent {
   authedUser = 'مضر اسكندر';
   jobTitle = 'موظف الهيئة العامة للجمارك';
   isAuthenticated = true;
-  filterText = '';
+  filterText: string = '';
+  filterChartsText = '';
   chartsOptions: Partial<ChartOptions>[] = [
     {
       title: {
@@ -256,81 +257,54 @@ export class AppComponent {
   ];
   searchList = [
     {
-      name: 'Parent1',
+      name: 'تحقيقات جارية',
       children: [
         {
-          name: 'Child11',
+          name: 'جوازات حديثة',
           children: [
             {
-              name: 'Child111',
+              name: 'قيد العمل',
             },
             {
-              name: 'Child112',
+              name: 'لم يتم البدء',
             },
           ],
         },
         {
-          name: 'Child12',
+          name: 'تجديد',
           children: [
             {
-              name: 'Child121',
+              name: 'تم التجديد',
             },
             {
-              name: 'Child122',
+              name: 'نقص في الوثائق',
             },
           ],
         },
       ],
     },
     {
-      name: 'Parent2',
+      name: 'تحقيقات منتهية',
       children: [
         {
-          name: 'Child21',
+          name: 'وثائق صالحة',
           children: [
             {
-              name: 'Child211',
+              name: 'تم التصديق',
             },
             {
-              name: 'Child212',
+              name: 'قيد العمل',
             },
           ],
         },
         {
-          name: 'Child22',
+          name: 'وثائق غير مطابقة',
           children: [
             {
-              name: 'Child221',
+              name: 'طلب إعادة',
             },
             {
-              name: 'Child222',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      name: 'Parent3',
-      children: [
-        {
-          name: 'Child31',
-          children: [
-            {
-              name: 'Child311',
-            },
-            {
-              name: 'Child312',
-            },
-          ],
-        },
-        {
-          name: 'Child32',
-          children: [
-            {
-              name: 'Child321',
-            },
-            {
-              name: 'Child322',
+              name: 'مرفوضة',
             },
           ],
         },

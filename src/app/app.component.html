@@ -4,11 +4,12 @@
     [ngClass]="open ? 'w-60 ' : 'w-20'"
   >
     <mat-icon
-      class="bg-white text-dark-purple rounded-md hover:-translate-y-0.5 transform transition focus:ring focus:ring-offset-2 absolute -left-3 top-9 border border-dark-purple cursor-pointer"
+      class="bg-white scale-150 text-dark-purple rounded-md hover:rounded-full hover:-translate-y-0.5 transform transition focus:ring focus:ring-offset-2 absolute -left-3 top-5 border border-dark-purple cursor-pointer"
       (click)="open = !open"
       [ngClass]="{ 'rotate-180': open }"
       >keyboard_arrow_left</mat-icon
     >
+
     <div class="flex justify-center my-2">
       <img src="../assets/photos/Group 2723@3x.png" width="150" class="" />
     </div>
@@ -23,7 +24,7 @@
       </h1>
     </div> -->
     <div
-      class="flex items-center rounded-md bg-light-white mt-6 px-4 py-2"
+      class="flex items-center rounded-md bg-light-white my-6 px-4 py-2"
       [ngClass]="{ hidden: !open }"
     >
       <mat-icon class="text-white text-lg block cursor-pointer mr-2"
@@ -73,6 +74,7 @@
                 type="search"
                 placeholder="...بحث"
                 class="text-lg bg-transparent w-full text-dark-purple focus:outline-none text-right"
+                [(ngModel)]="filterChartsText"
               />
             </div>
           </div>
@@ -83,7 +85,7 @@
       class="grid py-4 px-4 justify-center w-full lg:grid-cols-2 sm:grid-cols-1 sm:gap-10"
     >
       <div
-        *ngFor="let chartOptions of chartsOptions"
+        *ngFor="let chartOptions of chartsOptions | filter : filterChartsText"
         class="h-full shadow-lg bg-light-white lg:px-12 xl:px-16 transition ease-in-out delay-150 hover:-translate-y-0.5 hover:scale-105 hover:ring hover:ring-offset-2 duration-300"
       >
         <app-chart [chartOptions]="chartOptions"></app-chart>

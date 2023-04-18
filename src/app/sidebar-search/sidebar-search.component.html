@@ -5,25 +5,50 @@
   <ul class="text-right justify-items-start mx-auto w-full">
     <li>
       <div>
-        <button
-          title="unkown"
-          class="text-base w-full mx-0 px-2 py-3 hover:rounded-l-full rounded-lg"
+        <div
+          title="{{ parent.name }}"
+          class="text-lg mt-2 mr-2 py-2 text-orange-300"
+          [ngClass]="
+            parent.name.toLowerCase().includes(filterText) && filterText !== ''
+              ? 'bg-light-white text-yellow-50 rounded-full'
+              : ''
+          "
         >
           <span
-            class="w-5 mr-1 text-xs my-auto rounded-full hover:text-orange-500"
+            class="text-sm mx-2 float-left inline-block my-auto rounded-full hover:text-orange-500 hover:bg-light-white"
             >{{ parent.children.length }}</span
           >
           {{ parent.name }}
-        </button>
+        </div>
         <ul *ngFor="let child of parent.children">
           <li>
-            <p class="text-sm mt-2 mr-2">{{ child.name }}</p>
+            <p
+              class="text-base mt-2 after:content-['...']"
+              [ngClass]="
+                child.name.toLowerCase().includes(filterText) &&
+                filterText !== ''
+                  ? 'bg-green-400 text-dark-purple rounded-full'
+                  : ''
+              "
+            >
+              {{ child.name }}
+            </p>
           </li>
           <li>
-            <div>
+            <div class="border-r-2 border-dotted">
               <ul *ngFor="let grandson of child.children">
                 <li>
-                  <p class="text-sm mt-2 mr-4">{{ grandson.name }}</p>
+                  <p
+                    class="text-sm m-2 after:content-['<']"
+                    [ngClass]="
+                      grandson.name.toLowerCase().includes(filterText) &&
+                      filterText !== ''
+                        ? 'bg-orange-400 text-dark-purple'
+                        : ''
+                    "
+                  >
+                    {{ grandson.name }}
+                  </p>
                 </li>
               </ul>
             </div>

@@ -5,12 +5,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterCascadePipe implements PipeTransform {
   transform(list: any, filterString: string, propName: string): any {
+    filterString = filterString.toLocaleLowerCase();
     if (list.length === 0 || filterString === '') return list;
     const resultArray = [];
 
     for (let item of list) {
       if (
-        item[propName].toLowerCase().startsWith(filterString) ||
+        item[propName].toLowerCase().includes(filterString) ||
         this.searchFilter(item.children, filterString, propName)
       ) {
         resultArray.push(item);
@@ -20,11 +21,11 @@ export class FilterCascadePipe implements PipeTransform {
   }
 
   searchFilter(list: any, filterString: string, propName: string): any {
-    if (list[propName] && list[propName].toLowerCase().startsWith(filterString))
+    if (list[propName] && list[propName].toLowerCase().includes(filterString))
       return true;
 
     for (let item of list) {
-      if (item[propName].toLowerCase().startsWith(filterString)) {
+      if (item[propName].toLowerCase().includes(filterString)) {
         return true;
       }
       if (
