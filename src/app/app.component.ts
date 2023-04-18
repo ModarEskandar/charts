@@ -13,6 +13,7 @@ export class AppComponent {
   authedUser = 'مضر اسكندر';
   jobTitle = 'موظف الهيئة العامة للجمارك';
   isAuthenticated = true;
+  filterText = '';
   chartsOptions: Partial<ChartOptions>[] = [
     {
       title: {
@@ -251,6 +252,89 @@ export class AppComponent {
           'Physical',
         ],
       },
+    },
+  ];
+  searchList = [
+    {
+      name: 'Parent1',
+      children: [
+        {
+          name: 'Child11',
+          children: [
+            {
+              name: 'Child111',
+            },
+            {
+              name: 'Child112',
+            },
+          ],
+        },
+        {
+          name: 'Child12',
+          children: [
+            {
+              name: 'Child121',
+            },
+            {
+              name: 'Child122',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'Parent2',
+      children: [
+        {
+          name: 'Child21',
+          children: [
+            {
+              name: 'Child211',
+            },
+            {
+              name: 'Child212',
+            },
+          ],
+        },
+        {
+          name: 'Child22',
+          children: [
+            {
+              name: 'Child221',
+            },
+            {
+              name: 'Child222',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'Parent3',
+      children: [
+        {
+          name: 'Child31',
+          children: [
+            {
+              name: 'Child311',
+            },
+            {
+              name: 'Child312',
+            },
+          ],
+        },
+        {
+          name: 'Child32',
+          children: [
+            {
+              name: 'Child321',
+            },
+            {
+              name: 'Child322',
+            },
+          ],
+        },
+      ],
     },
   ];
 }

@@ -1,6 +1,6 @@
 <div class="flex font-kufi">
   <aside
-    class="bg-gradient-to-bl from-dark-purple to-blue-500 fixed pt-8 right-0 top-0 h-screen p-4 duration-500 items-center hidden sm:block"
+    class="bg-gradient-to-bl from-dark-purple to-blue-500 fixed pt-8 right-0 top-0 h-screen p-4 duration-500 items-center hidden sm:block overflow-y-auto"
     [ngClass]="open ? 'w-60 ' : 'w-20'"
   >
     <mat-icon
@@ -33,8 +33,14 @@
         type="search"
         placeholder="...بحث"
         class="text-base bg-transparent w-full text-white focus:outline-none text-right"
+        [(ngModel)]="filterText"
       />
     </div>
+    <app-sidebar-search
+      [filterText]="filterText"
+      [searchList]="searchList"
+      [ngClass]="{ hidden: !open }"
+    ></app-sidebar-search>
   </aside>
   <main
     class="flex-1 sm:mr-60 transition duration-500"
@@ -82,6 +88,9 @@
       >
         <app-chart [chartOptions]="chartOptions"></app-chart>
       </div>
+    </div>
+    <div>
+      <!-- <pipe-test></pipe-test> -->
     </div>
   </main>
 </div>

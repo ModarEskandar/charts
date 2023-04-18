@@ -1,0 +1,35 @@
+<div
+  *ngFor="let parent of searchList | filterCascade : filterText : 'name'"
+  class="flex justify-center text-white font-normal"
+>
+  <ul class="text-right justify-items-start mx-auto w-full">
+    <li>
+      <div>
+        <button
+          title="unkown"
+          class="text-base w-full mx-0 px-2 py-3 hover:rounded-l-full rounded-lg"
+        >
+          <span
+            class="w-5 mr-1 text-xs my-auto rounded-full hover:text-orange-500"
+            >{{ parent.children.length }}</span
+          >
+          {{ parent.name }}
+        </button>
+        <ul *ngFor="let child of parent.children">
+          <li>
+            <p class="text-sm mt-2 mr-2">{{ child.name }}</p>
+          </li>
+          <li>
+            <div>
+              <ul *ngFor="let grandson of child.children">
+                <li>
+                  <p class="text-sm mt-2 mr-4">{{ grandson.name }}</p>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
