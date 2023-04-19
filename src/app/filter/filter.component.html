@@ -1,0 +1,27 @@
+<div>
+  <ul class="text-right justify-items-start mx-auto w-full">
+    <li>
+      <label class="text-lg mt-2 mr-2 py-2 text-orange-300">الكل</label>
+      <input
+        type="radio"
+        name="filter"
+        value="All"
+        [(ngModel)]="selectedFilter"
+        (change)="onChangeSelectedFilter()"
+      />
+      <ul>
+        <li *ngFor="let item of itemsList">
+          <label class="text-base mt-2 text-white">{{ item.name }}</label>
+          <input
+            type="radio"
+            name="filter"
+            value="{{ item.name }}"
+            [(ngModel)]="selectedFilter"
+            (change)="onChangeSelectedFilter()"
+            class="mx-4"
+          />
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

@@ -255,7 +255,7 @@ export class AppComponent {
       },
     },
   ];
-  searchList = [
+  filteredList = [
     {
       name: 'تحقيقات جارية',
       children: [
@@ -311,4 +311,13 @@ export class AppComponent {
       ],
     },
   ];
+  searchList = [...this.filteredList];
+
+  selecteItemsFilter: string = 'All';
+  onSelecteItemsFilterChanged(data: string) {
+    this.selecteItemsFilter = data;
+    if (data === 'All') this.filteredList = [...this.searchList];
+    else
+      this.filteredList = this.searchList.filter((item) => item.name === data);
+  }
 }

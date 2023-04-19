@@ -2,6 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'filterCascade',
+  pure: false,
 })
 export class FilterCascadePipe implements PipeTransform {
   transform(list: any, filterString: string, propName: string): any {

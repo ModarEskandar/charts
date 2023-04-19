@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { SidebarSearchComponent } from './sidebar-search/sidebar-search.component';
 import { FilterCascadePipe } from './pipes/cascade-filter.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
+import { FilterComponent } from './filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { FilterPipe } from './pipes/filter.pipe';
     FilterCascadePipe,
     FilterPipe,
     SidebarSearchComponent,
+    FilterComponent,
   ],
   imports: [BrowserModule, NgApexchartsModule, MatIconModule, FormsModule],
   providers: [],
