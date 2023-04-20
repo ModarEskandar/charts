@@ -320,4 +320,81 @@ export class AppComponent {
     else
       this.filteredList = this.searchList.filter((item) => item.name === data);
   }
+
+  list = [
+    {
+      id: 1,
+      name: 'تحقيقات جارية',
+    },
+    {
+      id: 11,
+      name: 'جوازات حديثة',
+      parent: 1,
+    },
+    {
+      id: 111,
+      name: 'قيد العمل',
+      parent: 11,
+    },
+    {
+      id: 112,
+      name: 'لم يتم البدء',
+      parent: 11,
+    },
+    {
+      id: 12,
+      name: 'تجديد',
+      parent: 1,
+    },
+    {
+      id: 121,
+      name: 'تم التجديد',
+      parent: 12,
+    },
+    {
+      id: 122,
+      name: 'نقص في الوثائق',
+      parent: 12,
+    },
+    {
+      id: 2,
+      name: 'تحقيقات منتهية',
+    },
+    {
+      id: 21,
+      name: 'وثائق صالحة',
+      parent: 2,
+    },
+    {
+      id: 211,
+      name: 'تم التصديق',
+      parent: 21,
+    },
+    {
+      id: 212,
+      name: 'قيد العمل',
+      parent: 21,
+    },
+    {
+      id: 22,
+      name: 'وثائق غير مطابقة',
+      parent: 2,
+    },
+    {
+      id: 221,
+      name: 'طلب إعادة',
+      parent: 22,
+    },
+    {
+      id: 222,
+      name: 'مرفوضة',
+      parent: 22,
+    },
+  ];
+  // filteredList2= this.list.map(item=>{
+  //   let resultList = [];
+  //   if(!item.parent) return resultList.push({...item,searchText:item.name});
+  //   if(item.parent) return {...item,searchText:item.parent. item.name}
+  //   // resultList=[...resultList,[item.parent]:{children:{...item.children,{[item.id]:{children:{},searchText:item.name}}}}];
+  // })
 }

@@ -1,0 +1,46 @@
+<div
+  *ngFor="let parent of searchList | filterSidbarMenu : filterText"
+  class="flex justify-center text-white font-normal"
+>
+  <ul
+    class="text-right justify-items-start mx-auto w-full"
+    *ngIf="parent.searchText.toLowerCase().includes(filterText)"
+  >
+    <li>
+      <div>
+        <div
+          title="{{ parent.name }}"
+          class="text-lg mt-2 mr-2 py-2 text-orange-300"
+        >
+          <span
+            class="text-sm mx-2 float-left inline-block my-auto rounded-full hover:text-orange-500 hover:bg-light-white"
+            >{{ parent.children.length }}</span
+          >
+          <span [innerHTML]="parent.name | highlight : filterText"></span>
+        </div>
+        <ul *ngFor="let child of parent.children">
+          <li *ngIf="child.searchText.toLowerCase().includes(filterText)">
+            <p class="text-base mt-2 after:content-['...']">
+              <span [innerHTML]="child.name | highlight : filterText"></span>
+            </p>
+          </li>
+          <li>
+            <div class="border-r-2 border-dotted">
+              <ul *ngFor="let grandson of child.children">
+                <li
+                  *ngIf="grandson.searchText.toLowerCase().includes(filterText)"
+                >
+                  <p class="text-sm m-2 after:content-['<']">
+                    <span
+                      [innerHTML]="grandson.name | highlight : filterText"
+                    ></span>
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>

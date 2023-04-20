@@ -10,6 +10,9 @@ import { SidebarSearchComponent } from './sidebar-search/sidebar-search.componen
 import { FilterCascadePipe } from './pipes/cascade-filter.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FilterComponent } from './filter/filter.component';
+import { SearchComponent } from './search/search.component';
+import { FilterSidbarMenuPipe } from './pipes/filter-sidebar-menu.pipe';
+import { HighlightPipe } from './pipes/highlight.pipe';
 
 @NgModule({
   declarations: [
@@ -17,8 +20,12 @@ import { FilterComponent } from './filter/filter.component';
     ChartsComponent,
     FilterCascadePipe,
     FilterPipe,
+    SearchComponent,
     SidebarSearchComponent,
     FilterComponent,
+    SearchComponent,
+    FilterSidbarMenuPipe,
+    HighlightPipe,
   ],
   imports: [BrowserModule, NgApexchartsModule, MatIconModule, FormsModule],
   providers: [],

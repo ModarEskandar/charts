@@ -45,12 +45,15 @@
       class="duration-500"
       (selectedFilterChanged)="onSelecteItemsFilterChanged($event)"
     ></app-filter>
-    <app-sidebar-search
+    <!-- <app-sidebar-search
       [filterText]="filterText"
       [searchList]="filteredList"
       [ngClass]="{ hidden: !open }"
       class="duration-500"
-    ></app-sidebar-search>
+    ></app-sidebar-search> -->
+    <div>
+      <app-search [filterText]="filterText"></app-search>
+    </div>
   </aside>
   <main
     class="flex-1 sm:mr-60 transition duration-500"
@@ -99,9 +102,6 @@
       >
         <app-chart [chartOptions]="chartOptions"></app-chart>
       </div>
-    </div>
-    <div>
-      <!-- <pipe-test></pipe-test> -->
     </div>
   </main>
 </div>
