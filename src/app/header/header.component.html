@@ -1,0 +1,45 @@
+<div class="bg-light-white">
+  <nav>
+    <div class="m-8 py-4 grid grid-rows-2 grid-flow-col items-center gap-4">
+      <div
+        class="col-span-6 row-span-1 text-right text-dark-purple"
+        *ngIf="isAuthenticated"
+      >
+        <div *ngIf="isAuthenticated">
+          <a style="cursor: pointer" (click)="onLogout()"> تسجيل الخروج </a>
+          | {{ authedUser }}&nbsp; مرحباً
+        </div>
+      </div>
+      <div class="col-span-6 row-span-1 text-right text-dark-purple">
+        {{ jobTitle }}
+      </div>
+      <div class="col-span-2 row-span-2">
+        <img
+          [src]="avatarUrl"
+          alt="Avatar Logo"
+          style="width: 40px"
+          class="rounded-full ring-1"
+        />
+      </div>
+      <div class="col-span-2 row-span-2">
+        <mat-icon class="nav-icon">notifications</mat-icon>
+      </div>
+      <div class="col-span-2 row-span-2">
+        <mat-icon class="nav-icon"> message</mat-icon>
+      </div>
+      <div class="col-span-8 row-span-2">
+        <div
+          class="flex items-center rounded-md bg-light-white focus-within:ring focus-within:ring-offset-2"
+        >
+          <mat-icon class="nav-icon text-2xl block mr-2">search</mat-icon>
+          <input
+            type="search"
+            placeholder="...بحث"
+            class="text-lg bg-transparent w-full text-dark-purple focus:outline-none text-right"
+            [(ngModel)]="filterChartsText"
+          />
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

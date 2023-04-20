@@ -13,10 +13,21 @@ import { FilterComponent } from './filter/filter.component';
 import { SearchComponent } from './search/search.component';
 import { FilterSidbarMenuPipe } from './pipes/filter-sidebar-menu.pipe';
 import { HighlightPipe } from './pipes/highlight.pipe';
+import { LoginComponent } from './login/login.component';
+import { AppRoutingModule } from './app-routing.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AuthGuard } from './services/auth-guard.service';
+import { DataService } from './services/data.service';
+import { AuthService } from './services/auth.service';
+import { HomeComponent } from './home/home.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { HeaderComponent } from './header/header.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
     ChartsComponent,
     FilterCascadePipe,
     FilterPipe,
@@ -26,9 +37,20 @@ import { HighlightPipe } from './pipes/highlight.pipe';
     SearchComponent,
     FilterSidbarMenuPipe,
     HighlightPipe,
+    HomeComponent,
+    SidebarComponent,
+    HeaderComponent,
   ],
-  imports: [BrowserModule, NgApexchartsModule, MatIconModule, FormsModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    NgApexchartsModule,
+    MatIconModule,
+    FormsModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule,
+  ],
+  providers: [DataService, AuthService, AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

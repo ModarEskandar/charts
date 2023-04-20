@@ -48,7 +48,6 @@ export const arrayToTree = <T>(
       roots.push(node);
     }
   }
-  console.log(roots);
 
   return roots;
 };
@@ -150,28 +149,24 @@ export class SearchComponent implements OnInit {
       this.allItems = '';
       return this.buildSearchText(item, '', item.name);
     });
-    console.log('aaaaaa', this.searchList.flat());
   }
   buildSearchText(list: any, parentName: string, allItems: string) {
-    console.log(allItems);
     if (list.children.length > 0) {
       for (let child of list.children) {
-        child.parents = list.parents
-          ? list.parents + '@' + list.name
-          : list.name;
+        child.parents = parentName ? parentName + '@' + list.name : list.name;
         this.allItems = this.allItems + '@' + child.name;
         list.parents = list.parents + '@' + child.name;
         // child.searchText = child.searchText + list.name;
-        this.buildSearchText(child, list.parents, allItems);
+        this.buildSearchText(child, child.parents, allItems);
       }
-      list.searchText = list.parents + '@' + list.name;
+      list.searchText = list.name + '@' + list.parents;
     } else {
       {
-        list.searchText = list.parents + '@' + list.name;
+        list.searchText = list.name + '@' + list.parents;
         allItems = allItems + list.name;
       }
     }
-    if (!list.investParentId) list.searchText = this.allItems + '@' + list.name;
+    if (!list.investParentId) list.searchText = list.name + '@' + this.allItems;
     return list;
   }
 }
