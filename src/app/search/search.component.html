@@ -1,4 +1,4 @@
-<div
+<!-- <div
   *ngFor="let parent of searchList | filterSidbarMenu : filterText"
   class="flex justify-center text-white font-normal"
 >
@@ -43,4 +43,17 @@
       </div>
     </li>
   </ul>
+</div> -->
+<div>
+  <app-tree-list
+    *ngFor="
+      let root of searchList | filterSidbarMenu : filterText;
+      let index = index
+    "
+    [parent]="root"
+    [filterText]="filterText"
+    [id]="1"
+    [index]="index + 1"
+    class="flex text-white"
+  ></app-tree-list>
 </div>

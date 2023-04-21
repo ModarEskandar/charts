@@ -1,0 +1,28 @@
+<ul class="block list text-right w-full">
+  <li [ngClass]="'mr-' + id">
+    <div title="{{ parent.name }}" class="mt-2 py-2 text-white">
+      <span
+        *ngIf="parent.children.length !== 0"
+        class="text-sm mx-2 float-left inline-block my-auto rounded-full hover:text-orange-500 hover:bg-light-white"
+        >{{ parent.children.length }}</span
+      >
+
+      <span
+        [ngStyle]="{ 'font-style': 200 - 5 * id }"
+        [innerHTML]="parent.name | highlight : filterText"
+      ></span>
+    </div>
+  </li>
+  <li [ngClass]="'mr-' + id * 2">
+    <app-tree-list
+      *ngFor="
+        let child of parent.children | filterSidbarMenu : filterText;
+        let index = index
+      "
+      [parent]="child"
+      [id]="id"
+      [index]="index + 1"
+      [filterText]="filterText"
+    ></app-tree-list>
+  </li>
+</ul>

@@ -23,6 +23,7 @@ import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TreeListComponent } from './tree-list/tree-list.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     SidebarComponent,
     HeaderComponent,
+    TreeListComponent,
   ],
   imports: [
     BrowserModule,
