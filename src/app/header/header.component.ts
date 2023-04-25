@@ -1,8 +1,8 @@
 import { Subscription } from 'rxjs';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { User } from '../models/user.model';
+import { AuthService } from '../auth/auth.service';
+import { User } from '../auth/user.model';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +11,6 @@ import { User } from '../models/user.model';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   isAuthenticated: boolean = false;
-  appTitle = 'Polling';
   authedUser: string = '';
   avatarUrl: string = '';
   private userSub!: Subscription;
@@ -25,18 +24,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.userSub.unsubscribe();
   }
   ngOnInit(): void {
-    this.userSub = this.authService.loggedUser.subscribe(
-      (user: User | null) => {
-        this.isAuthenticated = !!user;
-        console.log('app header on init', !!user);
-        this.isAuthenticated = !!user;
-        this.authedUser = user?.name as string;
-        this.avatarUrl = user?.avatarURL as string;
-      }
-    );
+    this.userSub = this.authService.user.subscribe((user: User | null) => {
+      this.isAuthenticated = !!user;
+      console.log('app header on init', !!user);
+      this.isAuthenticated = !!user;
+      this.authedUser = user?.username as string;
+      this.avatarUrl = user ? '' : '';
+    });
   }
   onLogout() {
-    this.snackBar.open('Logged out successfully', undefined, {
+    this.snackBar.open('تم تسجيل الخروج', undefined, {
       duration: 3000,
       verticalPosition: 'top',
       horizontalPosition: 'center',
@@ -44,7 +41,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     });
     this.authService.logout();
   }
-  @Input() open!: boolean;
 
   jobTitle = 'موظف الهيئة العامة للجمارك';
   filterText: string = '';

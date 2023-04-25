@@ -17,13 +17,13 @@ import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AuthGuard } from './services/auth-guard.service';
-import { DataService } from './services/data.service';
-import { AuthService } from './services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TreeListComponent } from './tree-list/tree-list.component';
+import { AuthService } from './auth/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -51,8 +51,9 @@ import { TreeListComponent } from './tree-list/tree-list.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
+    HttpClientModule,
   ],
-  providers: [DataService, AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,9 +1,16 @@
-<div class="flex font-kufi">
-  <app-sidebar [open]="open"></app-sidebar>
-  <main class="flex-1 sm:mr-20 transition duration-500 w-100">
-    <app-header [open]="open"></app-header>
+<div class="flex" (click)="onClickOverHome()">
+  <main class="flex-1 duration-500 w-100">
+    <app-header></app-header>
+    <mat-icon
+      class="z-50 bg-white scale-150 text-dark-purple rounded-md absolute top-16 border right-0 border-dark-purple cursor-pointer duration-500"
+      (click)="open = !open"
+      [ngClass]="
+        !open ? 'translate-x-0 bg-light-white' : '  rotate-180 -translate-x-96 '
+      "
+      >arrow_left</mat-icon
+    >
     <div
-      class="grid py-4 px-4 justify-center w-full lg:grid-cols-2 sm:grid-cols-1 sm:gap-10"
+      class="grid py-4 px-4 justify-center w-full lg:grid-cols-2 sm:grid-cols-2 sm:gap-10"
     >
       <div
         *ngFor="let chartOptions of chartsOptions | filter : filterChartsText"
@@ -13,4 +20,5 @@
       </div>
     </div>
   </main>
+  <app-sidebar [open]="open"> </app-sidebar>
 </div>

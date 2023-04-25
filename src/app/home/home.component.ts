@@ -9,7 +9,7 @@ import { ChartOptions } from '../charts/charts.component';
 })
 export class HomeComponent {
   filterChartsText = '';
-  open = true;
+  open = false;
 
   chartsOptions: Partial<ChartOptions>[] = [
     {
@@ -251,4 +251,7 @@ export class HomeComponent {
       },
     },
   ];
+  onClickOverHome() {
+    console.log(this.open);
+  }
 }

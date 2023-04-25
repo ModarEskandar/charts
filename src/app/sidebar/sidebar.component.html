@@ -1,14 +1,7 @@
 <aside
-  class="z-50 bg-gradient-to-bl from-dark-purple to-blue-500 fixed pt-8 right-0 top-0 h-screen p-4 duration-500 items-center hidden sm:block overflow-y-auto"
-  [ngClass]="open ? 'w-80 ' : 'w-20'"
+  class="z-40 bg-gradient-to-l from-dark-purple w-70 to-blue-500 fixed pt-8 right-0 top-0 h-screen p-4 items-center sm:block overflow-y-auto ease-in-out duration-300"
+  [ngClass]="!open ? 'translate-x-full   ' : ' translate-x-0 '"
 >
-  <mat-icon
-    class="bg-white scale-150 text-dark-purple rounded-md hover:rounded-full hover:-translate-y-0.5 transform transition focus:ring focus:ring-offset-2 absolute -left-2 top-6 border border-dark-purple cursor-pointer"
-    (click)="open = !open"
-    [ngClass]="{ 'rotate-180': open }"
-    >arrow_left</mat-icon
-  >
-
   <div class="flex justify-center my-2">
     <img src="../assets/photos/Group 2723@3x.png" width="150" class="" />
   </div>
@@ -23,10 +16,7 @@
       </h1>
     </div> -->
 
-  <div
-    class="flex items-center rounded-md bg-light-white my-6 px-4 py-2"
-    [ngClass]="{ hidden: !open }"
-  >
+  <div class="flex items-center rounded-md bg-light-white my-6 px-4 py-2">
     <mat-icon class="text-white text-lg block cursor-pointer mr-2"
       >search</mat-icon
     >
@@ -51,9 +41,6 @@
       class="duration-500"
     ></app-sidebar-search> -->
   <div>
-    <app-search
-      [filterText]="filterText"
-      [ngClass]="{ hidden: !open }"
-    ></app-search>
+    <app-search [filterText]="filterText"></app-search>
   </div>
 </aside>

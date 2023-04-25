@@ -1,6 +1,10 @@
-<ul class="block list text-right w-full">
+<ul class="block list text-right w-full my-2">
   <li [ngClass]="'mr-' + id">
-    <div title="{{ parent.name }}" class="mt-2 py-2 text-white">
+    <div
+      title="{{ parent.name }}"
+      class="mt-2 py-2 text-white"
+      class="after:content-['<']"
+    >
       <span
         *ngIf="parent.children.length !== 0"
         class="text-sm mx-2 float-left inline-block my-auto rounded-full hover:text-orange-500 hover:bg-light-white"

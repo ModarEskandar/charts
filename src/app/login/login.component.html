@@ -1,4 +1,4 @@
-<div
+<!-- <div
   class="min-h-screen flex justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-500 bg-no-repeat bg-cover relative items-center"
   style="
     background-image: url(https://images.unsplash.com/photo-1525302220185-c387a117886e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80);
@@ -48,4 +48,61 @@
       </div>
     </form>
   </div>
+</div> -->
+<div
+  class="min-h-screen flex justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-dark-purple to-blue-500 bg-cover relative items-center"
+>
+  <section class="py-26 bg-white rounded-xl">
+    <div class="container px-4 mx-auto">
+      <div class="max-w-md w-full space-y-8 p-10 bg-white rounded-xl z-10">
+        <div class="text-center">
+          <h2 class="mt-6 text-3xl font-bold text-gray-900">مرحباً بعودتك</h2>
+          <p class="mt-2 text-sm text-gray-600">الرجاء تسجيل الدخول</p>
+        </div>
+        <form (ngSubmit)="onLogin(signinForm)" #signinForm="ngForm">
+          <div class="mb-6">
+            <label class="block mb-2 text-right font-extrabold" for="username"
+              >اسم المستخدم</label
+            >
+            <input
+              class="inline-block text-right w-full p-4 leading-6 text-lg font-extrabold placeholder-dark-purple bg-white shadow border-2 border-dark-purple rounded"
+              type="text"
+              placeholder="اسم المستخدم"
+              ngModel
+              name="username"
+              required
+            />
+          </div>
+          <div class="mb-6">
+            <label class="block mb-2 text-right font-extrabold" for="password"
+              >كلمة المرور</label
+            >
+            <input
+              class="inline-block text-right w-full p-4 leading-6 text-lg font-extrabold placeholder-dark-purple bg-white shadow border-2 border-dark-purple rounded"
+              type="password"
+              placeholder="**********"
+              ngModel
+              name="password"
+              required
+            />
+          </div>
+          <div class="-mx-4 mb-6 text-right">
+            <div class="w-full lg:w-auto px-4">
+              <label class="text-right">
+                <input type="checkbox" />
+                <span class="inline-block font-extrabold">تذكرني</span>
+              </label>
+            </div>
+          </div>
+          <button
+            type="submit"
+            [disabled]="signinForm.form.invalid"
+            class="inline-block w-full py-4 px-6 mb-6 text-center text-lg leading-6 text-white font-extrabold bg-indigo-800 hover:bg-dark-purple border-3 border-dark-purple shadow rounded transition duration-200"
+          >
+            تسجيل الدخول
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
 </div>

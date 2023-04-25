@@ -14,5 +14,20 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Noto Kufi Arabic", Roboto, "Helvetica Neue", sans-serif;
+}
+.red-snackbar {
+  --mat-mdc-snack-bar-button-color: #ffffff;
+  --mdc-snackbar-supporting-text-color: #f23a2f;
+  --mdc-snackbar-container-color: #ffffff;
+  text-align: right;
+
+  justify-content: center;
+}
+.green-snackbar {
+  --mat-mdc-snack-bar-button-color: #ffffff;
+  --mdc-snackbar-supporting-text-color: #43a446;
+  --mdc-snackbar-container-color: #ffffff;
+  text-align: right;
+  justify-content: center;
 }
