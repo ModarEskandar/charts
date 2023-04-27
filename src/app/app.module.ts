@@ -16,7 +16,7 @@ import { HighlightPipe } from './pipes/highlight.pipe';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { AuthGuard } from './services/auth-guard.service';
+import { AuthGuard } from './auth/auth-guard.service';
 import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';

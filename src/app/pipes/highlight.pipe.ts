@@ -8,10 +8,8 @@ export class HighlightPipe implements PipeTransform {
     if (!args) {
       return value;
     }
-    console.log('value', value);
     const regex = new RegExp(args, 'gi');
     const match = value.match(regex);
-    console.log('regex', regex);
 
     if (!match) {
       return value;

@@ -251,7 +251,4 @@ export class HomeComponent {
       },
     },
   ];
-  onClickOverHome() {
-    console.log(this.open);
-  }
 }

@@ -49,7 +49,6 @@ export class AuthService {
   autoLogin() {
     const userInfo = localStorage.getItem('userInfo') as string;
     const user: User = JSON.parse(userInfo);
-    console.log('auto login', user);
     if (!user) return;
     this.user.next(user);
     this.router.navigate(['/home']);

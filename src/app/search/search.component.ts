@@ -48,7 +48,6 @@ export const arrayToTree = <T>(
       roots.push(node);
     }
   }
-  console.log(roots);
   return roots;
 };
 
